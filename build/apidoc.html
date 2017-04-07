@@ -1,0 +1,143 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/substack/insert-css"
+
+    >insert-css (v2.0.0)</a>
+</h1>
+<h4>insert a string of css into the <head></h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.insert-css">module insert-css</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.insert-css.insertCss">
+            function <span class="apidocSignatureSpan">insert-css.</span>insertCss
+            <span class="apidocSignatureSpan">(css, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.insert-css" id="apidoc.module.insert-css">module insert-css</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.insert-css.insertCss" id="apidoc.element.insert-css.insertCss">
+        function <span class="apidocSignatureSpan">insert-css.</span>insertCss
+        <span class="apidocSignatureSpan">(css, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function insertCss(css, options) {
+    options = options || {};
+
+    if (css === undefined) {
+        throw new Error(usage);
+    }
+
+    var position = options.prepend === true ? &#x27;prepend&#x27; : &#x27;append&#x27;;
+    var container = options.container !== undefined ? options.container : document.querySelector(&#x27;head&#x27;);
+    var containerId = containers.indexOf(container);
+
+    // first time we see this container, create the necessary entries
+    if (containerId === -1) {
+        containerId = containers.push(container) - 1;
+        styleElements[containerId] = {};
+    }
+
+    // try to get the correponding container + position styleElement, create it otherwise
+    var styleElement;
+
+    if (styleElements[containerId] !== undefined &#x26;&#x26; styleElements[containerId][position] !== undefined) {
+        styleElement = styleElements[containerId][position];
+    } else {
+        styleElement = styleElements[containerId][position] = createStyleElement();
+
+        if (position === &#x27;prepend&#x27;) {
+            container.insertBefore(styleElement, container.childNodes[0]);
+        } else {
+            container.appendChild(styleElement);
+        }
+    }
+
+    // strip potential UTF-8 BOM if css was read from a file
+    if (css.charCodeAt(0) === 0xFEFF) { css = css.substr(1, css.length); }
+
+    // actually add the stylesheet
+    if (styleElement.styleSheet) {
+        styleElement.styleSheet.cssText += css
+    } else {
+        styleElement.textContent += css;
+    }
+
+    return styleElement;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
