@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/substack/insert-css"
-
-    >insert-css (v2.0.0)</a>
+    <a href="https://github.com/substack/insert-css">insert-css (v2.0.0)</a>
 </h1>
-<h4>insert a string of css into the <head></h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<h4>insert a string of css into the </h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.insert-css">module insert-css</a><ol>
 
@@ -114,8 +107,8 @@
         throw new Error(usage);
     }
 
-    var position = options.prepend === true ? &#x27;prepend&#x27; : &#x27;append&#x27;;
-    var container = options.container !== undefined ? options.container : document.querySelector(&#x27;head&#x27;);
+    var position = options.prepend === true ? 'prepend' : 'append';
+    var container = options.container !== undefined ? options.container : document.querySelector('head');
     var containerId = containers.indexOf(container);
 
     // first time we see this container, create the necessary entries
@@ -127,12 +120,12 @@
     // try to get the correponding container + position styleElement, create it otherwise
     var styleElement;
 
-    if (styleElements[containerId] !== undefined &#x26;&#x26; styleElements[containerId][position] !== undefined) {
+    if (styleElements[containerId] !== undefined &amp;&amp; styleElements[containerId][position] !== undefined) {
         styleElement = styleElements[containerId][position];
     } else {
         styleElement = styleElements[containerId][position] = createStyleElement();
 
-        if (position === &#x27;prepend&#x27;) {
+        if (position === 'prepend') {
             container.insertBefore(styleElement, container.childNodes[0]);
         } else {
             container.appendChild(styleElement);
@@ -170,8 +163,8 @@
         throw new Error(usage);
     }
 
-    var position = options.prepend === true ? &#x27;prepend&#x27; : &#x27;append&#x27;;
-    var container = options.container !== undefined ? options.container : document.querySelector(&#x27;head&#x27;);
+    var position = options.prepend === true ? 'prepend' : 'append';
+    var container = options.container !== undefined ? options.container : document.querySelector('head');
     var containerId = containers.indexOf(container);
 
     // first time we see this container, create the necessary entries
@@ -183,12 +176,12 @@
     // try to get the correponding container + position styleElement, create it otherwise
     var styleElement;
 
-    if (styleElements[containerId] !== undefined &#x26;&#x26; styleElements[containerId][position] !== undefined) {
+    if (styleElements[containerId] !== undefined &amp;&amp; styleElements[containerId][position] !== undefined) {
         styleElement = styleElements[containerId][position];
     } else {
         styleElement = styleElements[containerId][position] = createStyleElement();
 
-        if (position === &#x27;prepend&#x27;) {
+        if (position === 'prepend') {
             container.insertBefore(styleElement, container.childNodes[0]);
         } else {
             container.appendChild(styleElement);
@@ -231,8 +224,8 @@
         throw new Error(usage);
     }
 
-    var position = options.prepend === true ? &#x27;prepend&#x27; : &#x27;append&#x27;;
-    var container = options.container !== undefined ? options.container : document.querySelector(&#x27;head&#x27;);
+    var position = options.prepend === true ? 'prepend' : 'append';
+    var container = options.container !== undefined ? options.container : document.querySelector('head');
     var containerId = containers.indexOf(container);
 
     // first time we see this container, create the necessary entries
@@ -244,12 +237,12 @@
     // try to get the correponding container + position styleElement, create it otherwise
     var styleElement;
 
-    if (styleElements[containerId] !== undefined &#x26;&#x26; styleElements[containerId][position] !== undefined) {
+    if (styleElements[containerId] !== undefined &amp;&amp; styleElements[containerId][position] !== undefined) {
         styleElement = styleElements[containerId][position];
     } else {
         styleElement = styleElements[containerId][position] = createStyleElement();
 
-        if (position === &#x27;prepend&#x27;) {
+        if (position === 'prepend') {
             container.insertBefore(styleElement, container.childNodes[0]);
         } else {
             container.appendChild(styleElement);
@@ -280,3 +273,4 @@
     ]
 </div>
 </div>
+</body></html>

@@ -63,7 +63,29 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.insert-css.insert-css">
+            function <span class="apidocSignatureSpan"></span>insert-css
+            <span class="apidocSignatureSpan">(css, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.insert-css.insertCss">
+            function <span class="apidocSignatureSpan">insert-css.</span>insertCss
+            <span class="apidocSignatureSpan">(css, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.insert-css.insertCss">module insert-css.insertCss</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.insert-css.insertCss.insertCss">
             function <span class="apidocSignatureSpan">insert-css.</span>insertCss
             <span class="apidocSignatureSpan">(css, options)</span>
             </a>
@@ -79,7 +101,124 @@
 
 
     <h2>
+        <a href="#apidoc.element.insert-css.insert-css" id="apidoc.element.insert-css.insert-css">
+        function <span class="apidocSignatureSpan"></span>insert-css
+        <span class="apidocSignatureSpan">(css, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function insertCss(css, options) {
+    options = options || {};
+
+    if (css === undefined) {
+        throw new Error(usage);
+    }
+
+    var position = options.prepend === true ? &#x27;prepend&#x27; : &#x27;append&#x27;;
+    var container = options.container !== undefined ? options.container : document.querySelector(&#x27;head&#x27;);
+    var containerId = containers.indexOf(container);
+
+    // first time we see this container, create the necessary entries
+    if (containerId === -1) {
+        containerId = containers.push(container) - 1;
+        styleElements[containerId] = {};
+    }
+
+    // try to get the correponding container + position styleElement, create it otherwise
+    var styleElement;
+
+    if (styleElements[containerId] !== undefined &#x26;&#x26; styleElements[containerId][position] !== undefined) {
+        styleElement = styleElements[containerId][position];
+    } else {
+        styleElement = styleElements[containerId][position] = createStyleElement();
+
+        if (position === &#x27;prepend&#x27;) {
+            container.insertBefore(styleElement, container.childNodes[0]);
+        } else {
+            container.appendChild(styleElement);
+        }
+    }
+
+    // strip potential UTF-8 BOM if css was read from a file
+    if (css.charCodeAt(0) === 0xFEFF) { css = css.substr(1, css.length); }
+
+    // actually add the stylesheet
+    if (styleElement.styleSheet) {
+        styleElement.styleSheet.cssText += css
+    } else {
+        styleElement.textContent += css;
+    }
+
+    return styleElement;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
         <a href="#apidoc.element.insert-css.insertCss" id="apidoc.element.insert-css.insertCss">
+        function <span class="apidocSignatureSpan">insert-css.</span>insertCss
+        <span class="apidocSignatureSpan">(css, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function insertCss(css, options) {
+    options = options || {};
+
+    if (css === undefined) {
+        throw new Error(usage);
+    }
+
+    var position = options.prepend === true ? &#x27;prepend&#x27; : &#x27;append&#x27;;
+    var container = options.container !== undefined ? options.container : document.querySelector(&#x27;head&#x27;);
+    var containerId = containers.indexOf(container);
+
+    // first time we see this container, create the necessary entries
+    if (containerId === -1) {
+        containerId = containers.push(container) - 1;
+        styleElements[containerId] = {};
+    }
+
+    // try to get the correponding container + position styleElement, create it otherwise
+    var styleElement;
+
+    if (styleElements[containerId] !== undefined &#x26;&#x26; styleElements[containerId][position] !== undefined) {
+        styleElement = styleElements[containerId][position];
+    } else {
+        styleElement = styleElements[containerId][position] = createStyleElement();
+
+        if (position === &#x27;prepend&#x27;) {
+            container.insertBefore(styleElement, container.childNodes[0]);
+        } else {
+            container.appendChild(styleElement);
+        }
+    }
+
+    // strip potential UTF-8 BOM if css was read from a file
+    if (css.charCodeAt(0) === 0xFEFF) { css = css.substr(1, css.length); }
+
+    // actually add the stylesheet
+    if (styleElement.styleSheet) {
+        styleElement.styleSheet.cssText += css
+    } else {
+        styleElement.textContent += css;
+    }
+
+    return styleElement;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.insert-css.insertCss" id="apidoc.module.insert-css.insertCss">module insert-css.insertCss</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.insert-css.insertCss.insertCss" id="apidoc.element.insert-css.insertCss.insertCss">
         function <span class="apidocSignatureSpan">insert-css.</span>insertCss
         <span class="apidocSignatureSpan">(css, options)</span>
         </a>
